@@ -1,6 +1,6 @@
 # Simple Seeds
 
-just seed files in ordered file names with any ruby logic
+Seed files in ordered file names with any ruby logic
 
 ## usage:
 
@@ -13,42 +13,24 @@ or only run `rails db:simple_seed` to ignore simple seeds
 ```bash
 rails db:simple_seed
 ```
+### environments
+<% environments.each do |environment| %>
+[<%= environment %>](environments/<%= environment %>)
+<% end %>
+#### Order of precedance
+
+Simple seeds loads seeds based on the [all/] environment and the current selected environment
 
 
-## Examples:
+this can be handy if you require the same seed to run over all environments
 
-file `db/simple-seeds/00001_users.rb`
+#### Example:
+assuming :development environment  
+file1: `db/simple_seeds/environments/all/0001_users.rb`  
+file2: `db/simple_seeds/environments/development/0002_users.rb`  
+file3: `db/simple_seeds/environments/all/0003_posts.rb`  
+file4: `db/simple_seeds/environments/development/0004_posts.rb`  
 
-```ruby
-# Create 10 Users
-if Rails.env.development?
-  10.times
-    User.create([
-      {
-        first_name: Faker::Name.first_name,     
-        last_name:  Faker::Name.last_name),
-        user_email: Faker::Internet.email
-    }])
-  end
-end
-```
+order => file1, file2, file3, file4
 
-file `db/simple-seeds/00002_users_posts.rb`
-
-
-```ruby
-# Create Random amount of posts per user
-if Rails.env.development?
-  users = User.all
-  users.each do |user|
-  Random.rand(11) + 1).times
-    Post.create([
-      {
-        user_id: user.id,
-        description: Faker::Loerm.paragraph 
-      }])
-    end
-  end
-end
-```
-
+if an identical filename is found, then the :all environment will run first
