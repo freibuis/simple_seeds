@@ -1,0 +1,9 @@
+Description:
+    Creates the directory required for where the simple seeds are read from
+
+Example:
+    rails generate simple_seed:setup
+
+    This will create:
+        db/simple_seeds/
+        db/simple_seeds/README.md
