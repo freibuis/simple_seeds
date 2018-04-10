@@ -1,2 +1,20 @@
-with_first_parameter:
-  Enabled: true
+Style/AndOr:
+  EnforcedStyle: always
+
+Style/BracesAroundHashParameters:
+  Enabled: braces
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  AutoCorrect: true   
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+Layout/AlignParameters:
+  EnforcedStyle: with_first_parameter
