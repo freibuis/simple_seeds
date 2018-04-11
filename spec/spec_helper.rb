@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "simple_seed"
+require "simple_seeds"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
