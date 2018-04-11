@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Freibuis']
   spec.email         = ['freibuis@gmail.com']
   spec.summary       = %q{Simple Rails Seeds.. Its that simple}
-  spec.homepage      = 'https://github.com/freibuis/Simple_Seed'
+  spec.homepage      = 'https://github.com/freibuis/simple_seeds'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
