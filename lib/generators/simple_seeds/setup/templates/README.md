@@ -8,10 +8,10 @@ just run rails seed command as this hooks into `db:seed`
 ```bash 
 rails db:seed
 ```
-or only run `rails db:simple_seed` to ignore simple seeds
+or only run `rails db:simple_seeds` to ignore simple seeds
 
 ```bash
-rails db:simple_seed
+rails db:simple_seeds
 ```
 ### environments
 <% environments.each do |environment| %>
