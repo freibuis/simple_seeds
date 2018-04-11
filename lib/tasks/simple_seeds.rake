@@ -18,7 +18,7 @@ namespace :db do
       end
 
       # Sort the seed by filename
-      #  This should make All env sort first. of course this would mean 
+      #  This should make All env sort first. of course this would mean
       #  env: aaa would load first and break
       #
       #  Retweak this later if more env's come before evn: all
@@ -30,7 +30,10 @@ namespace :db do
       # load all  configurations here
       # @max_users = 1
       # this will then use max_users as 1 in all loaded seeds
-      load Rails.root.join('db', simple_seeds, 'simple_seeds.rb')
+      seed_configuration_file = Rails.root.join(
+        'db', simple_seeds, 'simple_seeds.rb'
+      )
+      load seed_configuration_file if File.exist?(seed_configuration_file)
 
       # Load each seed file. simple
       seeds.each do |seed_file|
