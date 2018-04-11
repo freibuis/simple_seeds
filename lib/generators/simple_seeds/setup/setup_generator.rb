@@ -8,6 +8,13 @@ class SimpleSeeds::SetupGenerator < Rails::Generators::Base
               .collect { |f| File.basename(f, '.rb') }
   end
 
+  # Create simple seeds confuration file
+  def create_configuration_file
+    template 'simple_seeds.rb', File.join(
+      'db', 'simple_seeds', 'simple_seeds.rb'
+    )
+  end
+
   # Creates simple Seeds base file
   def create_simple_seed_directory
     @environments = environments

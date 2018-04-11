@@ -7,14 +7,24 @@ namespace :db do
       all_seeds = Dir[File.join(
         Rails.root, 'db', 'simple_seeds',
         'environments', 'all', '**', '*.rb'
-      )].collect { |file| { environment: :all, file: file } }
+      )].collect do |file|
+        {
+          environment: :all,
+          file:        file,
+          filename:    File.basename(file)
+        }
+      end
 
       # Rails environment seed files
       environment_seeds = Dir[File.join(
         Rails.root, 'db', 'simple_seeds',
-        'environments', Rails.environment, '**', '*.rb'
+        'environments', Rails.env, '**', '*.rb'
       )].collect do |file|
-        { environment: Rails.environment.to_sym, file: file }
+        {
+          environment: Rails.env.to_sym,
+          file:        file,
+          filename:    File.basename(file)
+        }
       end
 
       # Sort the seed by filename
@@ -23,7 +33,7 @@ namespace :db do
       #
       #  Retweak this later if more env's come before evn: all
       seeds = (all_seeds + environment_seeds).sort_by do |seed_file|
-        seed_file[:file]
+        seed_file[:filename]
       end
 
       # Run simple_seeds configuration first
@@ -31,7 +41,7 @@ namespace :db do
       # @max_users = 1
       # this will then use max_users as 1 in all loaded seeds
       seed_configuration_file = Rails.root.join(
-        'db', simple_seeds, 'simple_seeds.rb'
+        'db', 'simple_seeds', 'simple_seeds.rb'
       )
       load seed_configuration_file if File.exist?(seed_configuration_file)
 
