@@ -1,15 +1,16 @@
 # SimpleSeed
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/simple_seed`. To experiment with that code, run `bin/console` for an interactive prompt.
+Here at Simple were are well, quite simple. So we just love our tools simple.
 
-TODO: Delete this and the text above, and describe your gem
+This tool alls your project to load seed data for diffrent rails environments (production,development,testing).. Simple ()
+
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'simple_seed'
+gem 'simple_seeds'
 ```
 
 And then execute:
@@ -18,11 +19,47 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install simple_seed
+    $ gem install simple_seeds
 
 ## Usage
 
-TODO: Write usage instructions here
+### Installation
+To create the base setup for simple_seeds, simply run  
+```bash
+rails generate simple_seeds:setup
+```
+
+this will create the following files and directories into your project
+`db/simple_seeds/README.md`  
+`db/simple_seeds/simple_seeds.rb` this file loads custom confiruations required by your project accross environments
+
+environments directories:  
+`db/simple_seeds/environments/all/` this directory
+`db/simple_seeds/environments/{Rails environments}/` each environment listed in your projects environments will be created
+
+
+### Running simple_seeds
+
+when running `rails db:seed` simple_seeds will automatically run after the rails seed file has completed
+
+if you want to run simple_seeds on its own just run
+`rails db:simple_seeds`
+
+## Seed Files
+
+seed files run in filename order from both the :all and your selected rails environment.
+example:  
+`all/001_users.rb`  
+`development/001_users.rb`
+
+the `all/001_users.rb` file will run first
+
+example:
+`all/002_users.rb`  
+`development/001_users.rb`
+
+the `development/001_users.rb` will run first
+
 
 ## Development
 
@@ -32,7 +69,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/simple_seed. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/freibuis/simple_seeds. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +77,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the SimpleSeed project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/simple_seed/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the SimpleSeed project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/simple_seeds/blob/master/CODE_OF_CONDUCT.md).
