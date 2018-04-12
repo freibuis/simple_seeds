@@ -2,7 +2,7 @@
 
 Here at Simple were are well, quite simple. So we just love our tools simple.
 
-This tool alls your project to load seed data for diffrent rails environments (production,development,testing).. Simple ()
+This tool alls your project to load seed data (via ruby/rails logic) for diffrent rails environments (production,development,testing etc).. Simple....
 
 
 ## Installation
@@ -29,12 +29,12 @@ To create the base setup for simple_seeds, simply run
 rails generate simple_seeds:setup
 ```
 
-this will create the following files and directories into your project
-`db/simple_seeds/README.md`  
+this will create the following files and directories into your project  <br />
+`db/simple_seeds/README.md`<br />
 `db/simple_seeds/simple_seeds.rb` this file loads custom confiruations required by your project accross environments
 
 environments directories:  
-`db/simple_seeds/environments/all/` this directory
+`db/simple_seeds/environments/all/` this is loaded for all environments<br />
 `db/simple_seeds/environments/{Rails environments}/` each environment listed in your projects environments will be created
 
 
@@ -48,15 +48,15 @@ if you want to run simple_seeds on its own just run
 ## Seed Files
 
 seed files run in filename order from both the :all and your selected rails environment.
-example:  
-`all/001_users.rb`  
-`development/001_users.rb`
+example:  <br />
+`all/001_users.rb `<br />  
+`development/001_users.rb` <br />
 
 the `all/001_users.rb` file will run first
 
-example:
-`all/002_users.rb`  
-`development/001_users.rb`
+example:  <br />
+`all/002_users.rb`  <br />
+`development/001_users.rb`  <br />
 
 the `development/001_users.rb` will run first
 
